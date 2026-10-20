@@ -1,0 +1,13 @@
+IP geolocation data by DB-IP: https://db-ip.com
+Source database: DB-IP Country Lite, October 2026.
+https://db-ip.com/db/lite.php
+Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/
+
+The DB-IP input was converted by v2fly/geoip at commit
+fd96fbac6cffc06ab9a10d6ee8fad61afe9b771c (release 202610050438).
+This application retains only the CN country list from the generated database.
+The conversion and subset are modifications; DB-IP does not endorse this app.
+The existing v2fly/geoip CC-BY-SA-4.0 notices are retained separately.
+Exact input hashes and reproducible generation instructions are included in
+fdroid/ROUTING-DATA-SOURCE.txt in the corresponding source distribution.
