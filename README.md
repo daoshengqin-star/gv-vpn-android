@@ -15,7 +15,11 @@ included; any F-Droid proposal must disclose TetheredNet and NonFreeNet.
 See [the pinned Linux instructions](fdroid/REPRODUCIBILITY.md).
 
     sh fdroid/native-from-source.sh
-    ./gradlew --no-daemon -PgvFdroidUnsigned=true :app:assembleRelease
+    sh gradlew --no-daemon -PgvFdroidUnsigned=true :app:assembleRelease
+
+For the F-Droid prepared/scanned checkout use `python3 fdroid/build-prepared-export.py`
+with checksum-pinned Gradle 8.13 on PATH. This builds the current prepared source
+export after scanning and records its public commit in the external recipe.
 
 The native library is built from pinned, checksum-verified source. No prebuilt
 AAR, signing secrets, local SDK paths, private reviewer credentials or QA
