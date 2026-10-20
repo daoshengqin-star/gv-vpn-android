@@ -1,0 +1,35 @@
+{
+  "status": "PrivatePreparation_NotFDroidSubmissionMetadata",
+  "applicationId": "com.globalvillager.mobile",
+  "versionName": "0.1.24",
+  "versionCode": 26,
+  "installedDisplayNameAllLocales": "GV VPN",
+  "sourceRepository": "https://github.com/daoshengqin-star/gv-vpn-android",
+  "sourceCommitOrReleaseTag": null,
+  "candidatePublicBinaryURL": null,
+  "sourceRoot": ".",
+  "appSubdirectory": "app",
+  "nativeBuildAfterSourceScan": "python3 fdroid/build-prepared-export.py",
+  "nativePrebuiltFromUnverifiedSourceAllowed": false,
+  "gradleTask": "assembleRelease",
+  "gradleProperties": ["gvFdroidUnsigned=true"],
+  "expectedAPK": "app/build/outputs/apk/release/app-universal-release-unsigned.apk",
+  "preferredFutureDistributionSignatureMode": "UpstreamDeveloperSignatureOnlyAfterReproducibleVerification",
+  "expectedUpstreamCertificateSHA256": "4727d84edd86c24ed2b63ce8031b3a451028b0868cfbde28923e03687d08a06c",
+  "silentlySwitchToFDroidSigningIdentity": false,
+  "reviewRequired": [
+  "Public source repository and pinned full Git commit",
+    "Actual F-Droid Linux/Debian build, scanner and lint",
+    "Exact reproducible-build match and upstream company signature verification",
+    "Native dependency and artwork licenses, project maintenance evidence",
+    "TetheredNet and backend licensing / NonFreeNet disclosure",
+    "Candidate device runtime and genuine screenshots"
+  ],
+  "policySources": [
+    "https://f-droid.org/docs/Inclusion_Policy/",
+    "https://f-droid.org/docs/Submitting_to_F-Droid_Quick_Start_Guide/",
+    "https://f-droid.org/docs/All_About_Descriptions_Graphics_and_Screenshots/",
+    "https://f-droid.org/docs/Reproducible_Builds/",
+    "https://f-droid.org/docs/Anti-Features/"
+  ]
+}
