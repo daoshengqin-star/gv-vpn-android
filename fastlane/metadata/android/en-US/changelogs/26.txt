@@ -1,0 +1,1 @@
+Unify the installed desktop name as GV VPN in all included languages. This candidate has not been released or accepted by F-Droid. Existing service access is required; no in-app purchases.
