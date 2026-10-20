@@ -1,0 +1,47 @@
+Routing data corresponding source and reproducible derivation
+
+GV VPN Android 0.1.24/code26 F-Droid candidate2. The routing bytes are unchanged
+from candidate1; source/provenance and DB-IP attribution were completed.
+
+Domain input: v2fly/domain-list-community (MIT)
+https://github.com/v2fly/domain-list-community
+Tag 20261009101206, commit c6adacf29cc4fb05e04651fcf03e00989ef9f797.
+Editable domain lists are under data/ in that exact source commit.
+Build with Go1.27.2 and its unmodified pinned go.mod/go.sum:
+go run ./ --outputdir=<output> --exportlists=category-ads-all,tld-cn,cn,tld-!cn,geolocation-!cn,apple,icloud
+Entire regenerated dlc.dat SHA256:
+51fcbfa2bf420e678a4c1f764ad8b2e668f99ac95fae147bb7aea7f75f96a641
+Keep GEOLOCATION-!CN then CN, preserving the original protobuf entry bytes.
+That subset SHA256 is 06c6aa693b2e5e5621125e7d384e28c12cb61e04f2ac4fd845f1efc027d83764.
+Append CNEXPLICIT containing all 6624 CN entries except the single domain:cn
+root. CNEXPLICIT has 6623 entries. The final geosite.dat is 766783 bytes,
+SHA256 d61e22b705f582750041ca8556921c60405679e57cde350f3d365a79e8234675.
+
+IP generator: v2fly/geoip (CC-BY-SA-4.0 notices retained)
+https://github.com/v2fly/geoip
+Tag 202610050438, commit fd96fbac6cffc06ab9a10d6ee8fad61afe9b771c.
+The exact upstream workflow and config use DB-IP Country Lite MMDB, not a
+MaxMind account or proprietary SDK. The source input is monthly structured
+geolocation data, not executable code. No reconstruction from the already
+compiled application dataset is used as a substitute for the upstream input.
+DB-IP Country Lite October2026 (CC BY4.0):
+https://download.db-ip.com/free/dbip-country-lite-2026-10.mmdb.gz
+Compressed bytes4123384, SHA256
+4cd44536ddfd40fec7eca94a233f7d19f38d470e6522e653cb8d27001f5fe177
+Uncompressed bytes8348509, SHA256
+dbd70ccfa2a13627eaf4913d19920a1a229f1b3c5439ac01c509995b6364202a
+Place the uncompressed input at db-ip/dbip-country-lite.mmdb in the exact
+generator checkout, then run go run ./ -c ./config.json.
+Entire regenerated geoip.dat SHA256:
+4ff4b2ec242a9e87b296ba27ddb85f8311e8d3e071eaebac5be9231c60e408dd
+Select only CN; it is identical to the generator output/cn.dat. App geoip.dat
+is 238067 bytes, SHA256
+95755557037a48b2cc6ab22f860d728c51278dc16472bf1997e85eb95112596e.
+
+Both entire upstream files and final app subsets were rebuilt and compared
+byte for byte against the pinned release and candidate files. The accompanying
+regenerate-routing-data.py reruns this verification in a separate output
+directory. It does not overwrite application assets or update to latest data.
+Source snapshots, license notices, input hashes and generation evidence are
+retained. DB-IP attribution and its license text are available inside the app's
+Other notices view. No blanket legal compliance or F-Droid acceptance is claimed.

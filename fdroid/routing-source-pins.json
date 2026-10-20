@@ -1,0 +1,30 @@
+{
+  "dlc": {
+    "repo": "v2fly/domain-list-community",
+    "tag": "20261009101206",
+    "commit": "c6adacf29cc4fb05e04651fcf03e00989ef9f797",
+    "releaseID": 407791880,
+    "upstreamSHA256": "51fcbfa2bf420e678a4c1f764ad8b2e668f99ac95fae147bb7aea7f75f96a641",
+    "asset": {
+      "browser_download_url": "https://github.com/v2fly/domain-list-community/releases/download/20261009101206/dlc.dat",
+      "sha256": "51fcbfa2bf420e678a4c1f764ad8b2e668f99ac95fae147bb7aea7f75f96a641",
+      "bytes": 2324364
+    }
+  },
+  "geoip": {
+    "repo": "v2fly/geoip",
+    "tag": "202610050438",
+    "commit": "fd96fbac6cffc06ab9a10d6ee8fad61afe9b771c",
+    "releaseID": 403376128,
+    "upstreamSHA256": "4ff4b2ec242a9e87b296ba27ddb85f8311e8d3e071eaebac5be9231c60e408dd",
+    "asset": {
+      "browser_download_url": "https://github.com/v2fly/geoip/releases/download/202610050438/geoip.dat",
+      "sha256": "4ff4b2ec242a9e87b296ba27ddb85f8311e8d3e071eaebac5be9231c60e408dd",
+      "bytes": 23258601
+    },
+    "inputURL": "https://download.db-ip.com/free/dbip-country-lite-2026-10.mmdb.gz",
+    "inputSHA256": "4cd44536ddfd40fec7eca94a233f7d19f38d470e6522e653cb8d27001f5fe177",
+    "uncompressedInputSHA256": "dbd70ccfa2a13627eaf4913d19920a1a229f1b3c5439ac01c509995b6364202a"
+  },
+  "goVersion": "1.27.2"
+}

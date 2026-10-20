@@ -49,8 +49,8 @@ an allowed signing-key fingerprint and F-Droid's own reproducible build result.
 The GPL-3.0 application, LGPL-3.0 AndroidLibXrayLite wrapper, MPL-2.0 Xray-core,
 and other module/data licenses retain their notices under app/src/main/assets/legal.
 The geoip/geosite files are non-executable routing datasets, not native binaries.
-Their pinned hashes and derivation records are retained. They are not claimed to
-have been regenerated from the upstream editable lists in this preparation.
+Their pinned hashes and derivation records are retained. Their complete pinned upstream generation and final app derivation were replayed
+byte for byte; see ROUTING-DATA-SOURCE.txt and regenerate-routing-data.py.
 
 The service requires an existing operator account and entitlement. Backend source
 is not part of this Android repository. TetheredNet and NonFreeNet disclosures
