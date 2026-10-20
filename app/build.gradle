@@ -1,0 +1,160 @@
+plugins { id 'com.android.application' }
+
+// Private F-Droid preparation: no company keys are loaded or distributed.
+def gvFdroidUnsigned = providers.gradleProperty('gvFdroidUnsigned').map { it.toBoolean() }.getOrElse(false)
+if (gvFdroidUnsigned && providers.gradleProperty('gvReleaseSigningFile').isPresent()) {
+    throw new GradleException('F-Droid unsigned preparation must not load company signing secrets.')
+}
+if (gvFdroidUnsigned && providers.gradleProperty('gvQaNativeAar').isPresent()) {
+    throw new GradleException('F-Droid preparation cannot use the diagnostic native library.')
+}
+
+// Signing secrets live outside the source tree and are never included in artifacts.
+
+def gvReleaseSigning = null
+
+if (providers.gradleProperty('gvReleaseSigningFile').isPresent()) {
+
+    gvReleaseSigning = new groovy.json.JsonSlurper().parse(file(providers.gradleProperty('gvReleaseSigningFile').get()))
+
+}
+
+if (providers.gradleProperty('gvQaNativeAar').isPresent()) {
+
+    layout.buildDirectory = rootProject.layout.projectDirectory.dir('../android-qa-stage-build-20261009')
+
+}
+
+android {
+
+    // Isolate repair candidates from the original submitted production outputs.
+    if (providers.gradleProperty('gvCandidateBuildDir').isPresent()) {
+        layout.buildDirectory = file(providers.gradleProperty('gvCandidateBuildDir').get())
+    }
+
+    namespace 'com.globalvillager.mobile'
+
+    compileSdk 36
+
+    defaultConfig {
+
+        applicationId 'com.globalvillager.mobile'
+
+        minSdk 28
+
+        targetSdk 36
+
+        versionCode 26
+        versionName '0.1.24'
+        buildConfigField 'boolean', 'EXTERNAL_BILLING_ALLOWED', (gvFdroidUnsigned || providers.gradleProperty('gvDistribution').getOrElse('website') == 'play') ? 'false' : 'true'
+
+        testInstrumentationRunner 'com.globalvillager.mobile.qa.NativeRouteInstrumentation'
+
+    }
+
+    if (providers.gradleProperty('gvDistribution').getOrElse('website') == 'play' && !providers.gradleProperty('gvCandidateBuildDir').isPresent()) {
+
+        layout.buildDirectory = rootProject.layout.projectDirectory.dir('../android-play-build-20261010')
+
+    }
+
+    buildFeatures { buildConfig true }
+
+    // Keep all three languages available to the in-app picker after a store install.
+
+    bundle { language { enableSplit = false } }
+
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+
+    signingConfigs {
+
+        if (gvReleaseSigning != null) {
+
+            release {
+
+                storeFile file(gvReleaseSigning.storeFile)
+
+                storePassword gvReleaseSigning.storePassword
+
+                keyAlias gvReleaseSigning.keyAlias
+
+                keyPassword gvReleaseSigning.keyPassword
+
+                storeType 'PKCS12'
+
+            }
+
+        }
+
+    }
+
+    buildTypes {
+
+        debug { applicationIdSuffix '.test'; versionNameSuffix '-test' }
+
+        release {
+
+            minifyEnabled false
+
+            if (gvReleaseSigning != null) { signingConfig signingConfigs.release }
+
+        }
+
+        qa {
+
+            initWith debug
+
+            applicationIdSuffix '.qa'
+
+            versionNameSuffix '-qa'
+
+        }
+
+    }
+
+    if (providers.gradleProperty('gvQaLifecycle').isPresent()) { testBuildType 'qa' }
+
+    // Compressed libraries keep the universal phone download small. Android
+
+    // extracts only the matching ABI; the libraries retain 16 KB ELF alignment.
+
+    packaging { jniLibs { useLegacyPackaging true } }
+
+    splits { abi {
+
+        enable true; reset()
+
+        if (providers.gradleProperty('gvQaNativeAar').isPresent()) { include 'x86_64' }
+
+        else { include 'arm64-v8a', 'armeabi-v7a', 'x86_64' }
+
+        universalApk !providers.gradleProperty('gvQaNativeAar').isPresent()
+
+    } }
+
+    testOptions { unitTests.returnDefaultValues = true }
+
+}
+
+dependencies {
+
+    implementation files(providers.gradleProperty('gvQaNativeAar').getOrElse('libs/libv2ray.aar'))
+
+    testImplementation 'junit:junit:4.13.2'
+
+    testImplementation 'org.json:json:20240303'
+
+}
+
+if (providers.gradleProperty('gvQaNativeAar').isPresent() && gradle.startParameter.taskNames.any { it.toLowerCase().contains('release') }) {
+
+    throw new GradleException('The diagnostic native library is allowed only for local debug testing.')
+
+}
+
+if (gvReleaseSigning == null && !gvFdroidUnsigned && gradle.startParameter.taskNames.any { it.toLowerCase().matches('.*(assemble|bundle|package).*release.*') }) {
+
+    throw new GradleException('Release artifacts require the private signing configuration. Unsigned releases are not allowed.')
+
+}
+
