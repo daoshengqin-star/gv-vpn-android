@@ -1,0 +1,28 @@
+{
+  "assets": [
+    {
+      "name": "geosite.dat",
+      "source": "https://release-assets.githubusercontent.com/github-production-release-asset/280658081/999f4b9b-8622-424c-8266-9dab4eb75c83",
+      "upstream_sha256": "51fcbfa2bf420e678a4c1f764ad8b2e668f99ac95fae147bb7aea7f75f96a641",
+      "sha256": "d61e22b705f582750041ca8556921c60405679e57cde350f3d365a79e8234675",
+      "bytes": 766783,
+      "entries": {
+        "GEOLOCATION-!CN": 25107,
+        "CN": 6624,
+        "CNEXPLICIT": 6623
+      },
+      "derived_from_sha256": "06c6aa693b2e5e5621125e7d384e28c12cb61e04f2ac4fd845f1efc027d83764",
+      "local_derivation": "Append CNEXPLICIT retaining all pinned CN entries except the unreviewed cn domain root; original groups and licenses retained"
+    },
+    {
+      "name": "geoip.dat",
+      "source": "https://release-assets.githubusercontent.com/github-production-release-asset/281846679/3005749d-9e5e-40c4-bfe1-1f0ed4cc24fc",
+      "upstream_sha256": "4ff4b2ec242a9e87b296ba27ddb85f8311e8d3e071eaebac5be9231c60e408dd",
+      "sha256": "95755557037a48b2cc6ab22f860d728c51278dc16472bf1997e85eb95112596e",
+      "bytes": 238067,
+      "entries": {
+        "CN": 15365
+      }
+    }
+  ]
+}
