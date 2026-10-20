@@ -1,0 +1,10 @@
+.gradle/
+**/build/
+local.properties
+*.jks
+*.p12
+*.keystore
+app/libs/*.aar
+app/libs/*-sources.jar
+fdroid/.build-tools/
+.gomobile-tmp/
