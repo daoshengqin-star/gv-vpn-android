@@ -655,7 +655,7 @@ public final class MainActivity extends Activity {
         String[] names={"AndroidLibXrayLite · LGPL-3.0","GNU GPL-3.0","Xray-core · MPL-2.0",tr(R.string.other_notices),tr(R.string.view_core_source)};
         String[] paths={"LICENSE-AndroidLibXrayLite-LGPL-3.0.txt","LICENSE-GPL-3.0.txt","LICENSE-Xray-core-MPL-2.0.txt","THIRD-PARTY-NOTICES.txt"};
         new AlertDialog.Builder(this).setTitle(tr(R.string.licenses)).setItems(names,(dialog,index)->{
-            if(index==4){open("https://worldcitizenvpn.com/downloads/GlobalVillager-Android-Native-Source-0.1.16.zip");return;}
+            if(index==4){open("https://github.com/daoshengqin-star/gv-vpn-android/tree/android-0.1.24-26-fdroid-candidate2/engine-reference");return;}
             io.submit(()->{try(java.io.InputStream in=getAssets().open("legal/"+paths[index]);java.io.ByteArrayOutputStream out=new java.io.ByteArrayOutputStream()){
                 byte[] block=new byte[8192];int n;while((n=in.read(block))!=-1){if(out.size()+n>1024*1024)throw new java.io.IOException("Notice too large");out.write(block,0,n);}
                 String notice=new String(out.toByteArray(),java.nio.charset.StandardCharsets.UTF_8);
