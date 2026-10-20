@@ -1,0 +1,25 @@
+{
+  "dataFiles": [
+    {
+      "name": "geoip.dat",
+      "sourceArchiveEntry": "AndroidLibXrayLite-26.9.30/assets/geoip.dat",
+      "bytes": 18534419,
+      "sha256": "7806115947f8a704d347fa103aa83aadc2cd531a72b82c44d991d598ac23eae9",
+      "matchesOriginalAAR": true,
+      "executable": false
+    },
+    {
+      "name": "geosite.dat",
+      "sourceArchiveEntry": "AndroidLibXrayLite-26.9.30/assets/geosite.dat",
+      "bytes": 8659692,
+      "sha256": "725397e93d0043146973220c106eb7e53ccbfd39508a63389e9fa0f7d616c06d",
+      "matchesOriginalAAR": true,
+      "executable": false
+    }
+  ],
+  "sourceArchiveSHA256": "fd89ce36c378979195dda35f102c1aa75304f012255404e9b244bea8e8c53945",
+  "source": "https://worldcitizenvpn.com/downloads/GlobalVillager-Android-0.1.23-Client-Source.zip",
+  "reason": "The original gomobile package included upstream assets in the AAR. Preserve those exact data files in the independent source rebuild rather than silently omitting them. Native code is still built from source.",
+  "outerArchiveSHA256": "50c08ee072a847f5cdf4e9addf97c529d0c1f8e9efb302a0f5574b6dd8f60a5a",
+  "embeddedArchive": "engine-reference/AndroidLibXrayLite-v26.9.30-source.zip"
+}
