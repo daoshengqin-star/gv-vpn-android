@@ -1,0 +1,103 @@
+Privacy Policy
+
+
+
+Last updated: September 11, 2026
+
+
+
+This Privacy Policy explains how Nexbridge Global Inc. handles information associated with Global Villager VPN.
+
+
+
+Information We Collect
+
+
+
+We may collect account information such as your name, email address, subscription status, transaction references, and information necessary to operate and secure the service.
+
+
+
+Payments
+
+
+
+Payments are processed by third-party payment providers. We do not directly store complete payment card details submitted through their checkout systems.
+
+
+
+How We Use Information
+
+
+
+Information may be used to provide the service, manage subscriptions, provide customer support, prevent abuse and fraud, maintain security, and comply with legal obligations.
+
+
+
+Data Sharing
+
+
+
+We may share information with service providers when necessary to operate the service, process payments, maintain infrastructure, provide support, or comply with applicable law.
+
+
+
+Security
+
+
+
+We use reasonable administrative and technical safeguards designed to protect information under our control.
+
+
+
+Your Choices
+
+
+
+You may contact us regarding questions about your personal information or this Privacy Policy.
+
+Android VPN data use and account deletion
+
+Updated October 11, 2026. This section applies to Global Villager VPN for Android, including its Google Play edition.
+
+Information and purposes
+
+We process your GV username or account identifier, protected authentication credentials, optional verified email, subscription and purchase-entitlement references, a hashed Android installation identifier, device name, registration and last-online status, and connection/provisioning operations. These support authentication, account recovery, VPN operation, the three-device allowance, subscription access, support, and prevention of abuse. You can register with a username without providing an email. The Google Play edition uses existing account entitlements and does not start an external checkout.
+
+The Android client does not request GPS/location, contacts, camera, microphone, SMS or phone permissions, and does not use an advertising identifier or advertising SDK. A VPN does not disable other apps’ location permissions, account identification, browser cookies or operating-system telemetry.
+
+VPN traffic, DNS and service providers
+
+The user-authorized Android VPN service processes network packets, destination addresses and domain-resolution requests to route the connection. Global mode routes supported traffic through the selected node; smart mode directly routes the traffic selected by its rules. The app explains this before VPN consent. Closing its interface does not itself disconnect the foreground VPN service; manual disconnect, Android permission changes, force-stop and system resource controls can stop it.
+
+Android uses Cloudflare (1.1.1.1) and Google Public DNS (8.8.8.8) over encrypted DNS through the tunnel. These resolvers receive DNS queries and network metadata and process them under their own public resolver policies, including operational/security logs and aggregate records. DNS encryption does not make the resolver unable to see a query. See the provider policies linked below.
+
+Our account service and VPN nodes use Vultr hosting infrastructure. Payment providers process payment authorizations outside the Google Play client; GV receives service-entitlement and transaction references rather than your full payment-card details. Optional email verification/recovery is delivered through Private Email. Infrastructure providers process service data to supply their corresponding services. We do not sell VPN user data or use it for advertising or user profiling.
+
+Retention and deletion
+
+Account and operational device records are retained to operate the account until an ownership-verified deletion request is fulfilled. Fulfillment revokes access and sessions, waits for registered VPN credentials to be removed from the four active nodes, and removes or erases the account profile and associated operational device/service records. Original financial transaction records and the minimum inactive internal references needed for accounting, disputes, fraud prevention or legal obligations may be retained; account deletion does not itself cancel a payment-provider subscription.
+
+To enforce one two-hour introductory experience per recognized device identifier, we retain a one-way device-claim hash and its original claim/expiry times for as long as that anti-abuse rule is operated. On account deletion it is detached from the deleted account. Deleting an account, removing a device, reinstalling, or changing accounts does not reset that claim. The identifier is not a GPS location or a hardware serial number.
+
+Operational and security logs may contain source IP, request path, time, user agent and error metadata. Nginx log rotation is configured where verified; other infrastructure logs currently have no uniform guaranteed short retention limit. We do not claim zero logging, immediate erasure of all logs, or a fixed deletion deadline for every financial, security or provider-held record. These records are retained for their operational, security or applicable legal purposes. Contact us for a data-access/deletion request and an explanation of any necessary retained records.
+
+Your controls
+
+In the app open Account settings → Request account deletion, or use the account-deletion page below without reinstalling the app. Email from your bound address or provide your GV username; support verifies ownership before fulfillment. Do not send a password, verification code or full payment-card information. You can leave an email request at any time; there are no fixed support hours. We respond after receipt and verification and explain any additional steps or necessary retention.
+
+Cloudflare Public DNS
+
+·
+
+Google Public DNS
+
+Delete your Global Villager VPN account
+
+Privacy contact and provider policies
+
+globalvillager@worldcitizenvpn.com
+
+https://developers.cloudflare.com/1.1.1.1/privacy/public-dns-resolver/
+
+https://developers.google.com/speed/public-dns/privacy
